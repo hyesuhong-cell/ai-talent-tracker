@@ -38,7 +38,7 @@ export default function AdminSidebar() {
       <aside className="print:hidden w-60 bg-purple-950 min-h-screen flex flex-col border-r border-purple-800">
         <div className="p-5 border-b border-purple-800">
           <div className="flex items-center gap-3 mb-1">
-            <div className="w-8 h-8 bg-purple-600 rounded-lg flex items-center justify-center text-white font-bold text-sm">UD</div>
+            <img src="/icon.png" alt="유디임팩트" className="w-8 h-8 rounded-lg object-contain" />
             <div>
               <div className="text-white font-bold text-sm leading-tight">슈퍼어드민</div>
               <div className="text-purple-400 text-xs">열람 모드</div>
@@ -86,7 +86,7 @@ export default function AdminSidebar() {
       {/* 로고 */}
       <div className="p-5 border-b border-slate-700">
         <Link href="/" className="flex items-center gap-3">
-          <div className="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center text-white font-bold text-sm">UD</div>
+          <img src="/icon.png" alt="유디임팩트" className="w-8 h-8 rounded-lg object-contain" />
           <div>
             <div className="text-white font-bold text-sm leading-tight">유디임팩트</div>
             <div className="text-slate-400 text-xs">운영진 관리</div>
