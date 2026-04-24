@@ -8,7 +8,7 @@ export default function DemoPage() {
       <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-100">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-sm">UD</div>
+            <img src="/icon.png" alt="유디임팩트" className="w-8 h-8 rounded-lg object-contain" />
             <span className="font-bold text-slate-900">유디임팩트 AI 역량 진단</span>
           </div>
           <div className="flex items-center gap-3">
@@ -268,7 +268,7 @@ export default function DemoPage() {
       <footer className="bg-slate-900 text-slate-400 py-10 px-6">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2.5">
-            <div className="w-7 h-7 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-xs">UD</div>
+            <img src="/icon.png" alt="유디임팩트" className="w-7 h-7 rounded-lg object-contain" />
             <span className="font-semibold text-white text-sm">유디임팩트</span>
           </div>
           <div className="text-xs text-center">

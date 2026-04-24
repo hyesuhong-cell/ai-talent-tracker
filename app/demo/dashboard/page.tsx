@@ -115,7 +115,7 @@ export default function DemoDashboardPage() {
         {/* 미니 사이드바 */}
         <aside className="w-56 bg-slate-900 flex flex-col py-6 px-4 flex-shrink-0">
           <div className="flex items-center gap-2.5 mb-8 px-2">
-            <div className="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center text-white font-bold text-sm">UD</div>
+            <img src="/icon.png" alt="유디임팩트" className="w-8 h-8 rounded-lg object-contain" />
             <div>
               <div className="text-white text-xs font-semibold leading-tight">유디임팩트</div>
               <div className="text-slate-400 text-[10px]">운영진 관리</div>
