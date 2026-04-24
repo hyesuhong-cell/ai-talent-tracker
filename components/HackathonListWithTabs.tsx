@@ -12,6 +12,12 @@ interface HackathonItem {
   category: HackathonCategory;
 }
 
+interface Props {
+  hackathons: HackathonItem[];
+  /** 데모 모드: 링크를 /demo/* 경로로 처리 */
+  demoMode?: boolean;
+}
+
 const CATEGORIES: { value: HackathonCategory | '전체'; label: string; icon: string }[] = [
   { value: '전체',       label: '전체',       icon: '📋' },
   { value: '사회문제해결', label: '사회문제해결', icon: '🌱' },
@@ -33,7 +39,7 @@ const CATEGORY_STYLE: Record<HackathonCategory, string> = {
   '교육·인재':    'bg-orange-50 text-orange-700',
 };
 
-export default function HackathonListWithTabs({ hackathons }: { hackathons: HackathonItem[] }) {
+export default function HackathonListWithTabs({ hackathons, demoMode = false }: Props) {
   const [active, setActive] = useState<HackathonCategory | '전체'>('전체');
 
   const filtered = active === '전체' ? hackathons : hackathons.filter(h => h.category === active);
@@ -45,7 +51,7 @@ export default function HackathonListWithTabs({ hackathons }: { hackathons: Hack
     <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-100">
       <div className="flex items-center justify-between mb-4">
         <h2 className="font-bold text-slate-800">해커톤 현황</h2>
-        <Link href="/admin/hackathons" className="text-blue-600 text-sm font-medium hover:underline">
+        <Link href={demoMode ? '/demo/hackathons' : '/admin/hackathons'} className="text-blue-600 text-sm font-medium hover:underline">
           모두 보기 →
         </Link>
       </div>
@@ -85,7 +91,7 @@ export default function HackathonListWithTabs({ hackathons }: { hackathons: Hack
           filtered.map(h => {
             const st = STATUS_STYLE[h.status];
             return (
-              <Link key={h.id} href={`/admin/hackathons/${h.id}`}>
+              <Link key={h.id} href={demoMode ? (h.status === 'completed' ? '/demo/report' : '#') : `/admin/hackathons/${h.id}`}>
                 <div className="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-50 transition-colors cursor-pointer group">
                   <div className={`w-2 h-2 rounded-full flex-shrink-0 ${st.bar}`} />
                   <div className="flex-1 min-w-0">

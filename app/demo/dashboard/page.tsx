@@ -69,7 +69,7 @@ export default function DemoDashboardPage() {
           <nav className="space-y-1">
             {[
               { icon: '🏠', label: '대시보드', href: '/demo/dashboard', active: true },
-              { icon: '📋', label: '해커톤 관리', href: '/demo/dashboard' },
+              { icon: '📋', label: '해커톤 관리', href: '/demo/hackathons' },
             ].map(item => (
               <a key={item.label} href={item.href}
                 className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-colors ${
@@ -109,7 +109,7 @@ export default function DemoDashboardPage() {
 
           <div className="grid grid-cols-2 gap-6 mb-6">
             {/* 해커톤 목록 */}
-            <HackathonListWithTabs hackathons={allHackathons} />
+            <HackathonListWithTabs hackathons={allHackathons} demoMode />
 
             {/* AI 역량 성장 요약 */}
             <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-100">
