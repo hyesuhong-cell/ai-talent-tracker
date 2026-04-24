@@ -460,6 +460,30 @@ export default function DemoReportPage() {
             </Link>
           </div>
         </div>
+
+        {/* 클로징 CTA */}
+        <div className="mt-12 bg-gradient-to-br from-blue-900 via-blue-800 to-cyan-700 rounded-3xl p-10 text-white text-center">
+          <div className="text-4xl mb-4">🎉</div>
+          <h2 className="text-2xl font-bold mb-3">이 리포트, 귀 대학 학생 데이터로 만들어드립니다</h2>
+          <p className="text-blue-200 text-base mb-2 max-w-xl mx-auto leading-relaxed">
+            지금 보신 모든 차트와 수치가 실제 귀 대학 해커톤 데이터로 자동 생성됩니다.<br/>
+            담당자 한 분이 30분만 투자하면, 다음 해커톤부터 이 리포트를 바로 발행하실 수 있습니다.
+          </p>
+          <div className="flex flex-wrap gap-3 justify-center mt-6 mb-8 text-sm">
+            {["✅ 도입 즉시 사용 가능", "✅ 별도 개발 불필요", "✅ 참가자 앱 포함", "✅ PDF 리포트 자동 발행", "✅ 타 대학 벤치마크 포함"].map(t => (
+              <span key={t} className="bg-white/15 px-3 py-1.5 rounded-full font-medium">{t}</span>
+            ))}
+          </div>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <a href="mailto:contact@udimpact.kr" className="bg-white text-blue-700 px-8 py-3.5 rounded-xl font-bold text-base hover:bg-blue-50 transition-colors">
+              📩 도입 문의하기
+            </a>
+            <Link href="/demo/dashboard" className="bg-white/20 text-white px-8 py-3.5 rounded-xl font-semibold text-base hover:bg-white/30 transition-colors border border-white/30">
+              대시보드 체험하기 →
+            </Link>
+          </div>
+          <p className="text-blue-300 text-xs mt-6">contact@udimpact.kr · 평일 응답 보장</p>
+        </div>
       </div>
     </div>
   );

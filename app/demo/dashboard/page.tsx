@@ -1,42 +1,91 @@
+'use client';
+
 import Link from 'next/link';
 import { mockHackathons, mockParticipants, mockSurveys } from '@/lib/mockData';
 import HackathonListWithTabs from '@/components/HackathonListWithTabs';
 import type { HackathonCategory } from '@/lib/types';
+import { useEffect, useState } from 'react';
+
+function useCountUp(target: number, duration = 1500) {
+  const [value, setValue] = useState(0);
+  useEffect(() => {
+    let start = 0;
+    const step = Math.ceil(duration / 60);
+    const increment = target / (duration / step);
+    const timer = setInterval(() => {
+      start += increment;
+      if (start >= target) {
+        setValue(target);
+        clearInterval(timer);
+      } else {
+        setValue(Math.floor(start));
+      }
+    }, step);
+    return () => clearInterval(timer);
+  }, [target, duration]);
+  return value;
+}
+
+// 데이터 집계는 모듈 최상단에서 수행 (클라이언트 컴포넌트에서도 가능)
+const university = '전체 (데모)';
+const diagnosed = mockParticipants.filter(p => p.preScore && p.postScore).length;
+const avgNps = mockSurveys.length > 0
+  ? Math.round(mockSurveys.reduce((s, v) => s + v.nps, 0) / mockSurveys.length * 10)
+  : 0;
+const completed = mockHackathons.filter(h => h.status === 'completed').length;
+
+const GROWTH = [
+  { label: 'AI 이해도', pre: 2.7, post: 4.2 },
+  { label: '도구 활용능력', pre: 2.1, post: 3.9 },
+  { label: '문제 해결력', pre: 2.8, post: 4.3 },
+  { label: '협업/커뮤니케이션', pre: 3.7, post: 4.6 },
+  { label: '윤리적 판단력', pre: 3.2, post: 4.2 },
+];
+
+const allHackathons = mockHackathons.map(h => ({
+  id: h.id,
+  name: h.name,
+  university: h.university,
+  startDate: h.startDate,
+  status: h.status,
+  category: h.category as HackathonCategory,
+}));
+
+function KpiCard({
+  icon,
+  label,
+  rawValue,
+  suffix,
+  sub,
+  color,
+  animate,
+}: {
+  icon: string;
+  label: string;
+  rawValue: number;
+  suffix: string;
+  sub: string;
+  color: string;
+  animate?: boolean;
+}) {
+  const counted = useCountUp(animate ? rawValue : 0, 1500);
+  const displayValue = animate ? counted : rawValue;
+  return (
+    <div className="bg-white rounded-xl p-5 shadow-sm border border-slate-100">
+      <div className="flex items-center justify-between mb-3">
+        <span className="text-2xl">{icon}</span>
+        <span className={`text-xs font-semibold text-white px-2 py-1 rounded-full ${color}`}>Live</span>
+      </div>
+      <div className="text-2xl font-bold text-slate-900 mb-1">
+        {displayValue}{suffix}
+      </div>
+      <div className="text-sm font-medium text-slate-600">{label}</div>
+      <div className="text-xs text-slate-400 mt-0.5">{sub}</div>
+    </div>
+  );
+}
 
 export default function DemoDashboardPage() {
-  const university = '전체 (데모)';
-
-  // 전체 mock 데이터 집계
-  const diagnosed = mockParticipants.filter(p => p.preScore && p.postScore).length;
-  const avgNps = mockSurveys.length > 0
-    ? Math.round(mockSurveys.reduce((s, v) => s + v.nps, 0) / mockSurveys.length * 10)
-    : 0;
-  const completed = mockHackathons.filter(h => h.status === 'completed').length;
-
-  const kpiCards = [
-    { label: '총 해커톤', value: mockHackathons.length, sub: `완료 ${completed}건`, color: 'bg-blue-600', icon: '🏆' },
-    { label: '총 참가자', value: mockParticipants.length + '명', sub: '역대 누적', color: 'bg-emerald-600', icon: '👥' },
-    { label: '역량 진단 완료', value: diagnosed + '명', sub: `완료율 ${Math.round(diagnosed / mockParticipants.length * 100)}%`, color: 'bg-violet-600', icon: '📊' },
-    { label: '평균 NPS', value: avgNps + '점', sub: '참가자 만족도', color: 'bg-orange-500', icon: '⭐' },
-  ];
-
-  const GROWTH = [
-    { label: 'AI 이해도', pre: 2.7, post: 4.2 },
-    { label: '도구 활용능력', pre: 2.1, post: 3.9 },
-    { label: '문제 해결력', pre: 2.8, post: 4.3 },
-    { label: '협업/커뮤니케이션', pre: 3.7, post: 4.6 },
-    { label: '윤리적 판단력', pre: 3.2, post: 4.2 },
-  ];
-
-  const allHackathons = mockHackathons.map(h => ({
-    id: h.id,
-    name: h.name,
-    university: h.university,
-    startDate: h.startDate,
-    status: h.status,
-    category: h.category as HackathonCategory,
-  }));
-
   return (
     <div className="min-h-screen bg-slate-50">
       {/* 데모 배너 */}
@@ -52,6 +101,15 @@ export default function DemoDashboardPage() {
               로그인 후 실제 사용 →
             </Link>
           </div>
+        </div>
+      </div>
+
+      {/* ✨ 유도 배너 */}
+      <div className="bg-amber-50 border-b border-amber-200">
+        <div className="max-w-7xl mx-auto px-6 py-3 flex items-center gap-3 text-sm text-amber-800">
+          <span className="text-lg">✨</span>
+          <span className="font-semibold">귀 대학에 적용하면 이런 대시보드를 보게 됩니다.</span>
+          <span className="text-amber-600">지금은 샘플 데이터 기준입니다. 도입 후 실제 해커톤 데이터가 실시간으로 반영됩니다.</span>
         </div>
       </div>
 
@@ -80,8 +138,14 @@ export default function DemoDashboardPage() {
               </a>
             ))}
           </nav>
-          <div className="mt-auto px-2">
-            <div className="text-slate-600 text-[10px] text-center">DEMO 모드</div>
+          <div className="mt-auto px-2 space-y-3">
+            <div className="text-slate-600 text-[10px] text-center mb-2">DEMO 모드</div>
+            <a
+              href="mailto:contact@udimpact.kr"
+              className="block w-full text-center bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold px-3 py-2.5 rounded-xl transition-colors"
+            >
+              📩 도입 문의
+            </a>
           </div>
         </aside>
 
@@ -92,19 +156,44 @@ export default function DemoDashboardPage() {
             <p className="text-slate-500 mt-1">{university} 해커톤 성과 현황 (샘플 데이터)</p>
           </div>
 
-          {/* KPI 카드 */}
+          {/* KPI 카드 (카운트업) */}
           <div className="grid grid-cols-4 gap-5 mb-8">
-            {kpiCards.map(card => (
-              <div key={card.label} className="bg-white rounded-xl p-5 shadow-sm border border-slate-100">
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-2xl">{card.icon}</span>
-                  <span className={`text-xs font-semibold text-white px-2 py-1 rounded-full ${card.color}`}>Live</span>
-                </div>
-                <div className="text-2xl font-bold text-slate-900 mb-1">{card.value}</div>
-                <div className="text-sm font-medium text-slate-600">{card.label}</div>
-                <div className="text-xs text-slate-400 mt-0.5">{card.sub}</div>
-              </div>
-            ))}
+            <KpiCard
+              icon="🏆"
+              label="총 해커톤"
+              rawValue={mockHackathons.length}
+              suffix="건"
+              sub={`완료 ${completed}건`}
+              color="bg-blue-600"
+              animate
+            />
+            <KpiCard
+              icon="👥"
+              label="총 참가자"
+              rawValue={mockParticipants.length}
+              suffix="명"
+              sub="역대 누적"
+              color="bg-emerald-600"
+              animate
+            />
+            <KpiCard
+              icon="📊"
+              label="역량 진단 완료"
+              rawValue={diagnosed}
+              suffix="명"
+              sub={`완료율 ${Math.round(diagnosed / mockParticipants.length * 100)}%`}
+              color="bg-violet-600"
+              animate
+            />
+            <KpiCard
+              icon="⭐"
+              label="평균 NPS"
+              rawValue={avgNps}
+              suffix="점"
+              sub="참가자 만족도"
+              color="bg-orange-500"
+              animate
+            />
           </div>
 
           <div className="grid grid-cols-2 gap-6 mb-6">
@@ -143,13 +232,16 @@ export default function DemoDashboardPage() {
           <div className="bg-gradient-to-r from-blue-600 to-cyan-500 rounded-2xl p-6 text-white text-center">
             <h3 className="text-lg font-bold mb-2">실제 해커톤 데이터로 운영하려면?</h3>
             <p className="text-blue-100 text-sm mb-4">어드민 계정으로 로그인하면 실제 참가자 관리, 성과 리포트 발행 등 전체 기능을 사용할 수 있습니다.</p>
-            <div className="flex items-center justify-center gap-3">
+            <div className="flex items-center justify-center gap-3 flex-wrap">
               <Link href="/admin/login" className="bg-white text-blue-700 px-6 py-2.5 rounded-xl font-bold text-sm hover:bg-blue-50 transition-colors">
                 어드민으로 로그인 →
               </Link>
               <Link href="/demo/report" className="bg-white/20 text-white px-6 py-2.5 rounded-xl font-semibold text-sm hover:bg-white/30 transition-colors border border-white/30">
                 성과 리포트 미리보기 →
               </Link>
+              <a href="mailto:contact@udimpact.kr" className="bg-white/20 text-white px-6 py-2.5 rounded-xl font-semibold text-sm hover:bg-white/30 transition-colors border border-white/30">
+                📩 도입 문의하기
+              </a>
             </div>
           </div>
         </main>

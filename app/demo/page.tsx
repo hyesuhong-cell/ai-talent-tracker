@@ -1,117 +1,56 @@
 import Link from 'next/link';
 
-const features = [
-  {
-    icon: '🎯',
-    title: '해커톤 통합 관리',
-    desc: '행사 개설부터 팀 구성, 프로젝트 제출, 심사까지 한 플랫폼에서',
-    items: ['해커톤 개설 & 트랙 설정', '참가자 초대 & 등록 관리', '팀/프로젝트 관리', '심사 점수 입력'],
-    color: 'blue',
-  },
-  {
-    icon: '🧠',
-    title: 'AI 역량 진단 시스템',
-    desc: '사전/사후 10문항 진단으로 5개 영역의 AI 역량 성장을 정량화',
-    items: ['AI 이해도 · 도구 활용능력', '문제 해결력 · 협업 역량', '윤리적 판단력', '성장률 자동 계산'],
-    color: 'violet',
-  },
-  {
-    icon: '📊',
-    title: '성과 리포트 & 분석',
-    desc: '대학 실무진을 위한 정량적 성과 보고서를 자동으로 생성',
-    items: ['KPI 대시보드', '참가자 역량 히트맵', '타 대학 벤치마크', 'PDF 리포트 발행'],
-    color: 'emerald',
-  },
-];
-
-const steps = [
-  { role: '운영진', step: '1', title: '해커톤 개설', desc: '행사 정보, 트랙, 일정 설정', icon: '⚙️' },
-  { role: '운영진', step: '2', title: '참가자 초대', desc: '초대 링크 발송, 등록 관리', icon: '📨' },
-  { role: '참가자', step: '3', title: '사전 AI 역량 진단', desc: '5개 영역 10문항 진단 완료', icon: '📋' },
-  { role: '참가자', step: '4', title: '해커톤 참가', desc: '팀 구성, 개발, 프로젝트 제출', icon: '💻' },
-  { role: '참가자', step: '5', title: '사후 AI 역량 진단', desc: '동일 문항으로 성장 측정', icon: '📈' },
-  { role: '운영진', step: '6', title: '성과 리포트 발행', desc: '정량 데이터 PDF 다운로드', icon: '📄' },
-];
-
-const demoAccounts = [
-  {
-    role: '🏫 대학 운영진 (어드민)',
-    color: 'blue',
-    desc: '해커톤 관리, KPI 대시보드, 성과 리포트 확인',
-    path: '/admin/login',
-    cta: '어드민으로 체험하기',
-    accounts: [
-      { label: '이메일', value: 'admin@udimpact.kr' },
-      { label: '비밀번호', value: 'admin1234' },
-    ],
-  },
-  {
-    role: '🎓 해커톤 참가자',
-    color: 'cyan',
-    desc: 'AI 역량 진단, 성장 리포트 확인',
-    path: '/participant/login',
-    cta: '참가자로 체험하기',
-    accounts: [
-      { label: '학번', value: '2021001001' },
-      { label: '비밀번호', value: 'test1234' },
-    ],
-  },
-];
-
-const stats = [
-  { value: '5개', label: 'AI 역량 진단 영역' },
-  { value: '10문항', label: '사전/사후 동일 진단' },
-  { value: '실시간', label: 'KPI 대시보드' },
-  { value: 'PDF', label: '리포트 자동 발행' },
-];
-
 export default function DemoPage() {
   return (
     <div className="min-h-screen bg-white">
 
-      {/* ── 헤더 네비 ──────────────────────────── */}
-      <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100">
+      {/* ── 헤더 (sticky) ─────────────────────────────── */}
+      <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-100">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2.5">
             <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-sm">UD</div>
-            <span className="font-bold text-slate-900">AI 역량 진단 플랫폼</span>
-            <span className="text-xs bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full font-semibold ml-1">DEMO</span>
+            <span className="font-bold text-slate-900">유디임팩트 AI 역량 진단</span>
           </div>
           <div className="flex items-center gap-3">
-            <Link href="/admin/login" className="text-sm text-slate-600 hover:text-slate-900 font-medium transition-colors">어드민 로그인</Link>
-            <Link href="/participant/login" className="text-sm bg-blue-600 text-white px-4 py-2 rounded-xl font-semibold hover:bg-blue-700 transition-colors">참가자 로그인</Link>
+            <Link href="/demo/dashboard" className="text-sm text-slate-600 hover:text-slate-900 font-medium transition-colors">체험하기</Link>
+            <a href="mailto:contact@udimpact.kr" className="text-sm bg-blue-600 text-white px-4 py-2 rounded-xl font-semibold hover:bg-blue-700 transition-colors">도입 문의</a>
           </div>
         </div>
       </header>
 
-      {/* ── 히어로 ─────────────────────────────── */}
-      <section className="bg-gradient-to-br from-blue-900 via-blue-800 to-cyan-700 text-white pt-24 pb-32 px-6">
+      {/* ── 히어로 (다크 그라디언트) ─────────────────── */}
+      <section className="bg-gradient-to-br from-blue-900 via-blue-800 to-cyan-700 text-white pt-24 pb-20 px-6">
         <div className="max-w-4xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm rounded-full px-4 py-2 text-sm font-medium mb-8">
             <span className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></span>
-            유디임팩트 · AI 해커톤 운영 솔루션
+            대학 창업지원단 · 교육기획팀 전용 데모
           </div>
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-            해커톤 참가자의<br />
-            <span className="text-cyan-300">AI 역량 성장</span>을 증명합니다
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight whitespace-pre-line">
+            {"해커톤 한 번으로\n학생의 AI 역량 성장을\n"}
+            <span className="text-cyan-300">숫자로 증명합니다</span>
           </h1>
           <p className="text-blue-200 text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
-            사전/사후 AI 역량 진단으로 학생들의 성장을 정량화하고,
-            대학 실무진에게 신뢰할 수 있는 성과 데이터를 제공합니다.
+            사전/사후 진단 데이터로 만든 성과 리포트 한 장이,<br className="hidden sm:block" />
+            다음 해커톤 예산을 지켜줍니다.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/demo/dashboard" className="bg-white text-blue-700 px-8 py-4 rounded-2xl font-bold text-base hover:bg-blue-50 transition-colors shadow-lg">
-              🚀 로그인 없이 바로 체험하기
+            <Link href="/demo/report" className="bg-white text-blue-700 px-8 py-4 rounded-2xl font-bold text-base hover:bg-blue-50 transition-colors shadow-lg">
+              📄 리포트 미리보기 (30초)
             </Link>
-            <a href="#features" className="bg-white/15 backdrop-blur-sm text-white px-8 py-4 rounded-2xl font-semibold text-base hover:bg-white/25 transition-colors border border-white/20">
-              주요 기능 살펴보기 ↓
-            </a>
+            <Link href="/demo/dashboard" className="bg-white/15 backdrop-blur-sm text-white px-8 py-4 rounded-2xl font-semibold text-base hover:bg-white/25 transition-colors border border-white/20">
+              대시보드 체험 →
+            </Link>
           </div>
         </div>
 
-        {/* 지표 배너 */}
-        <div className="max-w-3xl mx-auto mt-16 grid grid-cols-4 gap-4">
-          {stats.map(s => (
+        {/* 임팩트 수치 카드 */}
+        <div className="max-w-3xl mx-auto mt-16 grid grid-cols-2 md:grid-cols-4 gap-4">
+          {[
+            { value: '평균 +49%', label: 'AI 역량 향상률' },
+            { value: 'NPS 86점', label: '참가자 만족도' },
+            { value: '4.5 / 5점', label: '전반적 만족도' },
+            { value: '94%', label: '재참여 의향률' },
+          ].map(s => (
             <div key={s.label} className="bg-white/10 backdrop-blur-sm rounded-2xl p-5 text-center">
               <div className="text-2xl font-bold mb-1">{s.value}</div>
               <div className="text-blue-200 text-xs leading-tight">{s.label}</div>
@@ -120,278 +59,212 @@ export default function DemoPage() {
         </div>
       </section>
 
-      {/* ── 플로우 ─────────────────────────────── */}
+      {/* ── 페인포인트 섹션 ────────────────────────────── */}
+      <section className="py-20 px-6 bg-white">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-slate-900 mb-3">혹시 이런 고민 있으신가요?</h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6 mb-10">
+            {[
+              "해커톤 끝나고 나서... 학생들이 얼마나 성장했는지 숫자로 보여달라는데 막막합니다",
+              "매년 예산을 받아서 해커톤을 열지만, 성과를 정량적으로 보고할 수 있는 자료가 없습니다",
+              "참가 학생 설문지 수작업으로 취합하다 보니 리포트 하나 만드는 데 일주일이 걸립니다",
+            ].map((pain, i) => (
+              <div key={i} className="rounded-2xl p-7 border-2 border-red-100 bg-red-50/50 relative">
+                <div className="text-3xl mb-4">😔</div>
+                <p className="text-slate-700 text-sm leading-relaxed font-medium">"{pain}"</p>
+                <div className="absolute top-4 right-4 text-red-300 text-2xl font-bold opacity-40">"</div>
+              </div>
+            ))}
+          </div>
+          <div className="text-center">
+            <p className="text-lg font-semibold text-slate-500">이 세 가지를 자동으로 해결합니다 ↓</p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 솔루션 3단계 ──────────────────────────────── */}
       <section className="py-20 px-6 bg-slate-50">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-14">
-            <h2 className="text-3xl font-bold text-slate-900 mb-3">어떻게 운영되나요?</h2>
-            <p className="text-slate-500">해커톤 개설부터 성과 리포트 발행까지 6단계</p>
+            <h2 className="text-3xl font-bold text-slate-900 mb-3">3단계로 끝나는 성과 증명</h2>
+            <p className="text-slate-500">설문 수집부터 리포트 발행까지 플랫폼이 자동으로 처리합니다</p>
           </div>
-          <div className="grid grid-cols-3 md:grid-cols-6 gap-4">
-            {steps.map((s, i) => (
-              <div key={i} className="relative">
-                {i < steps.length - 1 && (
-                  <div className="hidden md:block absolute top-8 left-full w-full h-0.5 bg-slate-200 z-0" style={{ width: 'calc(100% - 2rem)', left: '2rem' }}></div>
-                )}
-                <div className="relative z-10 flex flex-col items-center text-center">
-                  <div className={`w-16 h-16 rounded-2xl flex items-center justify-center text-2xl mb-3 shadow-sm ${
-                    s.role === '운영진' ? 'bg-blue-100' : 'bg-cyan-100'
-                  }`}>
-                    {s.icon}
-                  </div>
-                  <div className={`text-xs font-semibold px-2 py-0.5 rounded-full mb-2 ${
-                    s.role === '운영진' ? 'bg-blue-100 text-blue-700' : 'bg-cyan-100 text-cyan-700'
-                  }`}>
-                    {s.role}
-                  </div>
-                  <div className="font-bold text-slate-800 text-sm mb-1">{s.title}</div>
-                  <div className="text-slate-400 text-xs leading-relaxed">{s.desc}</div>
-                </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                icon: '🧠',
+                title: '사전/사후 AI 역량 진단',
+                desc: '5개 영역 10문항. 해커톤 전후에 동일 진단으로 성장을 정량화합니다',
+                color: 'violet',
+              },
+              {
+                icon: '📊',
+                title: '실시간 KPI 대시보드',
+                desc: '참가자 현황, 역량 평균, NPS를 한 화면에서 실시간으로 확인합니다',
+                color: 'blue',
+              },
+              {
+                icon: '📄',
+                title: '성과 리포트 자동 생성',
+                desc: '히트맵·레이더 차트·벤치마크를 포함한 PDF 리포트를 클릭 한 번에 발행합니다',
+                color: 'emerald',
+              },
+            ].map(f => (
+              <div key={f.title} className={`rounded-2xl p-8 border shadow-sm ${
+                f.color === 'violet' ? 'bg-violet-50 border-violet-100' :
+                f.color === 'blue' ? 'bg-blue-50 border-blue-100' :
+                'bg-emerald-50 border-emerald-100'
+              }`}>
+                <div className="text-4xl mb-5">{f.icon}</div>
+                <h3 className={`text-lg font-bold mb-3 ${
+                  f.color === 'violet' ? 'text-violet-900' :
+                  f.color === 'blue' ? 'text-blue-900' :
+                  'text-emerald-900'
+                }`}>{f.title}</h3>
+                <p className="text-slate-600 text-sm leading-relaxed">{f.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── 주요 기능 ───────────────────────────── */}
-      <section id="features" className="py-20 px-6">
+      {/* ── 리포트 프리뷰 CTA ─────────────────────────── */}
+      <section className="py-20 px-6 bg-white">
         <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-14">
-            <h2 className="text-3xl font-bold text-slate-900 mb-3">주요 기능</h2>
-            <p className="text-slate-500">운영진과 참가자 모두를 위한 완성된 플랫폼</p>
+          <div className="text-center mb-10">
+            <h2 className="text-3xl font-bold text-slate-900 mb-3">이런 리포트가 자동으로 만들어집니다</h2>
+            <p className="text-slate-500">샘플 데이터로 만든 성과 리포트를 지금 바로 확인해보세요</p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            {features.map(f => (
-              <div key={f.title} className={`rounded-2xl p-7 border ${
-                f.color === 'blue' ? 'bg-blue-50 border-blue-100' :
-                f.color === 'violet' ? 'bg-violet-50 border-violet-100' :
-                'bg-emerald-50 border-emerald-100'
-              }`}>
-                <div className="text-4xl mb-4">{f.icon}</div>
-                <h3 className={`text-lg font-bold mb-2 ${
-                  f.color === 'blue' ? 'text-blue-900' :
-                  f.color === 'violet' ? 'text-violet-900' :
-                  'text-emerald-900'
-                }`}>{f.title}</h3>
-                <p className="text-slate-600 text-sm mb-5 leading-relaxed">{f.desc}</p>
-                <ul className="space-y-2">
-                  {f.items.map(item => (
-                    <li key={item} className="flex items-center gap-2 text-sm text-slate-700">
-                      <div className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${
-                        f.color === 'blue' ? 'bg-blue-500' :
-                        f.color === 'violet' ? 'bg-violet-500' :
-                        'bg-emerald-500'
-                      }`}></div>
+          <div className="rounded-3xl border-2 border-blue-200 bg-gradient-to-br from-blue-50 to-cyan-50 p-8 md:p-10">
+            <div className="flex flex-col md:flex-row items-center gap-10">
+              <div className="flex-1">
+                <p className="text-sm font-semibold text-blue-600 mb-4 uppercase tracking-wide">리포트 포함 내용</p>
+                <ul className="space-y-3">
+                  {[
+                    '역량 성장률 (사전→사후 정량 비교)',
+                    '참가자 역량 히트맵 (개인별 분포)',
+                    'NPS & 항목별 만족도',
+                    '팀 프로젝트 현황 & 수상 내역',
+                    '타 대학 벤치마크 비교',
+                  ].map(item => (
+                    <li key={item} className="flex items-center gap-3 text-slate-700 text-sm font-medium">
+                      <span className="text-blue-500 font-bold flex-shrink-0">✅</span>
                       {item}
                     </li>
                   ))}
                 </ul>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── 체험 가이드 ─────────────────────────── */}
-      <section className="py-20 px-6 bg-white border-t border-slate-100">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-14">
-            <h2 className="text-3xl font-bold text-slate-900 mb-3">이렇게 체험해보세요</h2>
-            <p className="text-slate-500">로그인 후 아래 순서대로 클릭하면 핵심 기능을 5분 안에 파악할 수 있습니다</p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-10">
-            {/* 어드민 체험 경로 */}
-            <div>
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center text-white font-bold text-sm">A</div>
-                <div>
-                  <div className="font-bold text-slate-900">운영진 체험 경로</div>
-                  <div className="text-xs text-slate-400">admin@udimpact.kr / admin1234</div>
+              <div className="flex-shrink-0 text-center">
+                <div className="bg-white rounded-2xl shadow-lg p-8 mb-4">
+                  <div className="text-5xl mb-3">📄</div>
+                  <div className="text-sm font-semibold text-slate-700 mb-1">2025 AI 해커톤</div>
+                  <div className="text-xs text-slate-400">성과 리포트 샘플</div>
                 </div>
-              </div>
-              <div className="space-y-3">
-                {[
-                  { step: 1, label: '대시보드 확인', desc: 'KPI 카드 & 해커톤 목록 — 로그인 불필요', href: '/demo/dashboard', badge: '미리보기' },
-                  { step: 2, label: '성과 리포트 보기', desc: 'AI 역량 진단 결과 & 히트맵 — 로그인 불필요', href: '/demo/report', badge: '핵심!' },
-                  { step: 3, label: '로그인 후 실제 사용', desc: '참가자 관리·PDF 발행 등 전체 기능', href: '/admin/login', badge: '어드민' },
-                  { step: 4, label: 'PDF 발행', desc: '어드민 리포트 페이지 우상단 → 인쇄', href: '/admin/login', badge: 'PDF' },
-                  { step: 5, label: '참가자 역량 진단 관리', desc: '사전/사후 완료 현황 & 통계', href: '/admin/login', badge: '' },
-                ].map(item => (
-                  <a
-                    key={item.step}
-                    href={item.href}
-                    className="flex items-center gap-4 p-4 rounded-xl border border-slate-100 hover:border-blue-200 hover:bg-blue-50 transition-all group"
-                  >
-                    <div className="w-8 h-8 bg-blue-100 text-blue-700 rounded-lg flex items-center justify-center text-sm font-bold flex-shrink-0 group-hover:bg-blue-600 group-hover:text-white transition-colors">
-                      {item.step}
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="font-semibold text-slate-800 text-sm group-hover:text-blue-700 transition-colors">{item.label}</div>
-                      <div className="text-xs text-slate-400">{item.desc}</div>
-                    </div>
-                    {item.badge && (
-                      <span className={`text-xs px-2 py-0.5 rounded-full font-semibold flex-shrink-0 ${
-                        item.badge === '핵심!' ? 'bg-blue-600 text-white' : 'bg-slate-100 text-slate-500'
-                      }`}>{item.badge}</span>
-                    )}
-                    <span className="text-slate-300 group-hover:text-blue-400 transition-colors">→</span>
-                  </a>
-                ))}
-              </div>
-            </div>
-
-            {/* 참가자 체험 경로 */}
-            <div>
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 bg-cyan-500 rounded-xl flex items-center justify-center text-white font-bold text-sm">P</div>
-                <div>
-                  <div className="font-bold text-slate-900">참가자 체험 경로</div>
-                  <div className="text-xs text-slate-400">학번 2021001001 / test1234</div>
-                </div>
-              </div>
-              <div className="space-y-3">
-                {[
-                  { step: 1, label: '참가자 홈', desc: '진행 단계 & 해커톤 현황 확인', href: '/participant', badge: '메인' },
-                  { step: 2, label: '사전 AI 역량 진단', desc: '5개 영역 10문항 응답', href: '/participant/pre-diagnosis', badge: '' },
-                  { step: 3, label: '사후 AI 역량 진단', desc: '동일 문항으로 성장 측정', href: '/participant/post-diagnosis', badge: '' },
-                  { step: 4, label: '만족도 설문', desc: 'NPS & 항목별 만족도 응답', href: '/participant/survey', badge: '' },
-                  { step: 5, label: '나의 성장 리포트', desc: '사전→사후 역량 변화 확인', href: '/participant/my-result', badge: '핵심!' },
-                ].map(item => (
-                  <a
-                    key={item.step}
-                    href={item.href}
-                    className="flex items-center gap-4 p-4 rounded-xl border border-slate-100 hover:border-cyan-200 hover:bg-cyan-50 transition-all group"
-                  >
-                    <div className="w-8 h-8 bg-cyan-100 text-cyan-700 rounded-lg flex items-center justify-center text-sm font-bold flex-shrink-0 group-hover:bg-cyan-500 group-hover:text-white transition-colors">
-                      {item.step}
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="font-semibold text-slate-800 text-sm group-hover:text-cyan-700 transition-colors">{item.label}</div>
-                      <div className="text-xs text-slate-400">{item.desc}</div>
-                    </div>
-                    {item.badge && (
-                      <span className={`text-xs px-2 py-0.5 rounded-full font-semibold flex-shrink-0 ${
-                        item.badge === '핵심!' ? 'bg-cyan-500 text-white' : 'bg-slate-100 text-slate-500'
-                      }`}>{item.badge}</span>
-                    )}
-                    <span className="text-slate-300 group-hover:text-cyan-400 transition-colors">→</span>
-                  </a>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-10 p-5 bg-amber-50 border border-amber-200 rounded-2xl flex items-start gap-3 text-sm">
-            <span className="text-xl flex-shrink-0">💡</span>
-            <div className="text-amber-800">
-              <span className="font-semibold">참가자 성장 리포트 체험 팁:</span>{' '}
-              처음 로그인 시 진단 데이터가 없을 수 있습니다.{' '}
-              <a href="/api/seed-demo" target="_blank" className="underline font-semibold hover:text-amber-600">여기를 클릭</a>해서
-              데모 데이터를 먼저 삽입한 뒤 성장 리포트를 확인하세요.
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── 데모 체험 ───────────────────────────── */}
-      <section id="demo" className="py-20 px-6 bg-slate-900">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-14">
-            <h2 className="text-3xl font-bold text-white mb-3">지금 바로 체험해보세요</h2>
-            <p className="text-slate-400">아래 데모 계정으로 실제 플랫폼을 직접 사용해볼 수 있습니다</p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-6">
-            {demoAccounts.map(acc => (
-              <div key={acc.role} className={`rounded-2xl p-8 border ${
-                acc.color === 'blue'
-                  ? 'bg-blue-950 border-blue-800'
-                  : 'bg-cyan-950 border-cyan-800'
-              }`}>
-                <div className="text-2xl font-bold text-white mb-1">{acc.role}</div>
-                <p className={`text-sm mb-6 ${acc.color === 'blue' ? 'text-blue-300' : 'text-cyan-300'}`}>
-                  {acc.desc}
-                </p>
-
-                {/* 계정 정보 */}
-                <div className="bg-black/30 rounded-xl p-4 mb-6 space-y-2 font-mono">
-                  {acc.accounts.map(a => (
-                    <div key={a.label} className="flex items-center justify-between">
-                      <span className="text-slate-500 text-xs">{a.label}</span>
-                      <span className="text-white text-sm font-semibold">{a.value}</span>
-                    </div>
-                  ))}
-                </div>
-
                 <Link
-                  href={acc.path}
-                  className={`block w-full text-center py-3.5 rounded-xl font-bold text-sm transition-colors ${
-                    acc.color === 'blue'
-                      ? 'bg-blue-600 hover:bg-blue-500 text-white'
-                      : 'bg-cyan-500 hover:bg-cyan-400 text-white'
-                  }`}
+                  href="/demo/report"
+                  className="block bg-gradient-to-r from-blue-600 to-cyan-500 text-white px-8 py-4 rounded-2xl font-bold text-base hover:opacity-90 transition-opacity shadow-lg"
                 >
-                  {acc.cta} →
+                  성과 리포트 미리보기 →
                 </Link>
               </div>
-            ))}
+            </div>
           </div>
-
-          <p className="text-center text-slate-500 text-xs mt-8">
-            데모 계정은 읽기/쓰기가 모두 가능합니다. 작성된 데이터는 주기적으로 초기화됩니다.
-          </p>
         </div>
       </section>
 
-      {/* ── 대상 고객 ───────────────────────────── */}
-      <section className="py-20 px-6 bg-white">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-14">
-            <h2 className="text-3xl font-bold text-slate-900 mb-3">이런 분들에게 추천합니다</h2>
+      {/* ── 체험 섹션 ─────────────────────────────────── */}
+      <section className="py-20 px-6 bg-slate-900">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-white mb-3">지금 바로 체험해보세요</h2>
+            <p className="text-slate-400">로그인 없이 샘플 데이터로 모든 기능을 확인할 수 있습니다</p>
           </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              { icon: '🏫', title: '대학 창업지원단', desc: '해커톤 성과를 정량적 데이터로 증명하고 싶은 담당자' },
-              { icon: '🏢', title: '기업 / 기관', desc: 'AI 교육 프로그램의 효과를 측정하고 싶은 HRD 담당자' },
-              { icon: '🎓', title: '교육 기관', desc: '학생들의 AI 역량 변화를 체계적으로 추적하고 싶은 교수/강사' },
-            ].map(t => (
-              <div key={t.title} className="bg-slate-50 rounded-2xl p-7 text-center border border-slate-100">
-                <div className="text-4xl mb-4">{t.icon}</div>
-                <h3 className="font-bold text-slate-800 mb-2">{t.title}</h3>
-                <p className="text-slate-500 text-sm leading-relaxed">{t.desc}</p>
+
+          <div className="grid md:grid-cols-2 gap-6 mb-6">
+            {/* 운영진 대시보드 */}
+            <div className="bg-blue-950 border border-blue-800 rounded-2xl p-8">
+              <div className="text-3xl mb-3">🖥️</div>
+              <h3 className="text-xl font-bold text-white mb-2">운영진 대시보드</h3>
+              <p className="text-blue-300 text-sm mb-6 leading-relaxed">
+                KPI 카드, AI 역량 성장 차트, 해커톤 목록을 한눈에 확인합니다.<br />
+                <span className="text-blue-400 font-semibold">로그인 없이 바로 체험</span>
+              </p>
+              <Link
+                href="/demo/dashboard"
+                className="block w-full text-center bg-blue-600 hover:bg-blue-500 text-white py-3.5 rounded-xl font-bold text-sm transition-colors"
+              >
+                대시보드 체험하기 →
+              </Link>
+            </div>
+
+            {/* 성과 리포트 */}
+            <div className="bg-emerald-950 border border-emerald-800 rounded-2xl p-8">
+              <div className="text-3xl mb-3">📊</div>
+              <h3 className="text-xl font-bold text-white mb-2">성과 리포트</h3>
+              <p className="text-emerald-300 text-sm mb-6 leading-relaxed">
+                역량 히트맵, 벤치마크, NPS까지 담긴 완성형 리포트를 미리봅니다.<br />
+                <span className="text-emerald-400 font-semibold">로그인 없이 바로 체험</span>
+              </p>
+              <Link
+                href="/demo/report"
+                className="block w-full text-center bg-emerald-600 hover:bg-emerald-500 text-white py-3.5 rounded-xl font-bold text-sm transition-colors"
+              >
+                성과 리포트 미리보기 →
+              </Link>
+            </div>
+          </div>
+
+          {/* 참가자 체험 */}
+          <div className="bg-slate-800 border border-slate-700 rounded-2xl p-6 flex flex-col sm:flex-row items-center gap-6">
+            <div className="text-3xl flex-shrink-0">🎓</div>
+            <div className="flex-1 text-center sm:text-left">
+              <h3 className="text-base font-bold text-white mb-1">참가자 체험</h3>
+              <p className="text-slate-400 text-sm">학생 눈으로 보는 역량 진단 & 성장 리포트</p>
+              <div className="flex flex-wrap gap-3 justify-center sm:justify-start mt-2">
+                <span className="text-xs bg-black/30 text-slate-300 px-3 py-1 rounded-full font-mono">학번: 2021001001</span>
+                <span className="text-xs bg-black/30 text-slate-300 px-3 py-1 rounded-full font-mono">비밀번호: test1234</span>
               </div>
-            ))}
+            </div>
+            <Link
+              href="/participant/login"
+              className="flex-shrink-0 bg-slate-600 hover:bg-slate-500 text-white px-6 py-3 rounded-xl font-semibold text-sm transition-colors"
+            >
+              참가자 체험 →
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* ── CTA 배너 ────────────────────────────── */}
-      <section className="py-20 px-6 bg-gradient-to-r from-blue-600 to-cyan-500">
+      {/* ── 클로징 CTA ────────────────────────────────── */}
+      <section className="py-20 px-6 bg-gradient-to-br from-blue-700 via-blue-600 to-cyan-500 text-white">
         <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">도입 문의</h2>
-          <p className="text-blue-100 mb-8 leading-relaxed">
-            귀 기관에 맞게 커스터마이징하여 제공합니다.<br />
-            아래 버튼으로 문의주시면 빠르게 답변드립니다.
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">
+            귀 대학 해커톤,<br />다음 번엔 성과 리포트와 함께
+          </h2>
+          <p className="text-blue-100 text-lg mb-10 leading-relaxed">
+            도입 문의 주시면 맞춤 시연을 제공해드립니다.<br />
+            <span className="text-blue-200 text-sm">평일 응답 보장 · contact@udimpact.kr</span>
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/demo/dashboard"
-              className="bg-white text-blue-700 px-8 py-4 rounded-2xl font-bold hover:bg-blue-50 transition-colors"
-            >
-              🚀 로그인 없이 체험하기
-            </Link>
             <a
               href="mailto:contact@udimpact.kr"
-              className="bg-white/20 text-white px-8 py-4 rounded-2xl font-semibold hover:bg-white/30 transition-colors border border-white/30"
+              className="bg-white text-blue-700 px-8 py-4 rounded-2xl font-bold text-base hover:bg-blue-50 transition-colors shadow-lg"
             >
-              ✉️ 도입 문의하기
+              📩 도입 문의하기
             </a>
+            <Link
+              href="/demo/dashboard"
+              className="bg-white/20 text-white px-8 py-4 rounded-2xl font-semibold text-base hover:bg-white/30 transition-colors border border-white/30"
+            >
+              체험 먼저 하기 →
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* ── 푸터 ────────────────────────────────── */}
+      {/* ── 푸터 ──────────────────────────────────────── */}
       <footer className="bg-slate-900 text-slate-400 py-10 px-6">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2.5">
@@ -399,12 +272,12 @@ export default function DemoPage() {
             <span className="font-semibold text-white text-sm">유디임팩트</span>
           </div>
           <div className="text-xs text-center">
-            AI 역량 진단 플랫폼 · 데모 환경
+            AI 역량 진단 플랫폼 · 대학 창업지원단 전용 데모
           </div>
           <div className="flex items-center gap-4 text-xs">
-            <Link href="/" className="hover:text-white transition-colors">홈</Link>
-            <Link href="/admin/login" className="hover:text-white transition-colors">어드민</Link>
-            <Link href="/participant/login" className="hover:text-white transition-colors">참가자</Link>
+            <Link href="/demo/dashboard" className="hover:text-white transition-colors">대시보드</Link>
+            <Link href="/demo/report" className="hover:text-white transition-colors">성과 리포트</Link>
+            <a href="mailto:contact@udimpact.kr" className="hover:text-white transition-colors">도입 문의</a>
           </div>
         </div>
       </footer>
