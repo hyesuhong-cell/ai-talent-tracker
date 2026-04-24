@@ -13,7 +13,7 @@ export default function DemoPage() {
           </div>
           <div className="flex items-center gap-3">
             <Link href="/demo/dashboard" className="text-sm text-slate-600 hover:text-slate-900 font-medium transition-colors">체험하기</Link>
-            <a href="mailto:hyesu.hong@udimpact.ai" className="text-sm bg-blue-600 text-white px-4 py-2 rounded-xl font-semibold hover:bg-blue-700 transition-colors">도입 문의</a>
+            <a href="https://forms.gle/GRcf2iNKxL21ys5B9" className="text-sm bg-blue-600 text-white px-4 py-2 rounded-xl font-semibold hover:bg-blue-700 transition-colors">도입 문의</a>
           </div>
         </div>
       </header>
@@ -227,11 +227,11 @@ export default function DemoPage() {
           </h2>
           <p className="text-blue-100 text-lg mb-10 leading-relaxed">
             도입 문의 주시면 맞춤 시연을 제공해드립니다.<br />
-            <span className="text-blue-200 text-sm">평일 응답 보장 · contact@udimpact.kr</span>
+            <span className="text-blue-200 text-sm">평일 응답 보장 · hyesu.hong@udimpact.ai</span>
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="mailto:hyesu.hong@udimpact.ai"
+              href="https://forms.gle/GRcf2iNKxL21ys5B9"
               className="bg-white text-blue-700 px-8 py-4 rounded-2xl font-bold text-base hover:bg-blue-50 transition-colors shadow-lg"
             >
               📩 도입 문의하기
@@ -259,7 +259,7 @@ export default function DemoPage() {
           <div className="flex items-center gap-4 text-xs">
             <Link href="/demo/dashboard" className="hover:text-white transition-colors">대시보드</Link>
             <Link href="/demo/report" className="hover:text-white transition-colors">성과 리포트</Link>
-            <a href="mailto:hyesu.hong@udimpact.ai" className="hover:text-white transition-colors">도입 문의</a>
+            <a href="https://forms.gle/GRcf2iNKxL21ys5B9" className="hover:text-white transition-colors">도입 문의</a>
           </div>
         </div>
       </footer>

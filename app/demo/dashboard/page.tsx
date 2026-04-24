@@ -138,7 +138,7 @@ export default function DemoDashboardPage() {
           <div className="mt-auto px-2 space-y-3">
             <div className="text-slate-600 text-[10px] text-center mb-2">DEMO 모드</div>
             <a
-              href="mailto:hyesu.hong@udimpact.ai"
+              href="https://forms.gle/GRcf2iNKxL21ys5B9"
               className="block w-full text-center bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold px-3 py-2.5 rounded-xl transition-colors"
             >
               📩 도입 문의
@@ -233,7 +233,7 @@ export default function DemoDashboardPage() {
               <Link href="/demo/report" className="bg-white text-blue-700 px-6 py-2.5 rounded-xl font-bold text-sm hover:bg-blue-50 transition-colors">
                 성과 리포트 미리보기 →
               </Link>
-              <a href="mailto:hyesu.hong@udimpact.ai" className="bg-white/20 text-white px-6 py-2.5 rounded-xl font-semibold text-sm hover:bg-white/30 transition-colors border border-white/30">
+              <a href="https://forms.gle/GRcf2iNKxL21ys5B9" className="bg-white/20 text-white px-6 py-2.5 rounded-xl font-semibold text-sm hover:bg-white/30 transition-colors border border-white/30">
                 📩 도입 문의하기
               </a>
             </div>
