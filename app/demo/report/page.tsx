@@ -475,7 +475,7 @@ export default function DemoReportPage() {
             ))}
           </div>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <a href="mailto:contact@udimpact.kr" className="bg-white text-blue-700 px-8 py-3.5 rounded-xl font-bold text-base hover:bg-blue-50 transition-colors">
+            <a href="https://forms.gle/GRcf2iNKxL21ys5B9" className="bg-white text-blue-700 px-8 py-3.5 rounded-xl font-bold text-base hover:bg-blue-50 transition-colors">
               📩 도입 문의하기
             </a>
             <Link href="/demo/dashboard" className="bg-white/20 text-white px-8 py-3.5 rounded-xl font-semibold text-base hover:bg-white/30 transition-colors border border-white/30">
