@@ -216,24 +216,6 @@ export default function DemoPage() {
             </div>
           </div>
 
-          {/* 참가자 체험 */}
-          <div className="bg-slate-800 border border-slate-700 rounded-2xl p-6 flex flex-col sm:flex-row items-center gap-6">
-            <div className="text-3xl flex-shrink-0">🎓</div>
-            <div className="flex-1 text-center sm:text-left">
-              <h3 className="text-base font-bold text-white mb-1">참가자 체험</h3>
-              <p className="text-slate-400 text-sm">학생 눈으로 보는 역량 진단 & 성장 리포트</p>
-              <div className="flex flex-wrap gap-3 justify-center sm:justify-start mt-2">
-                <span className="text-xs bg-black/30 text-slate-300 px-3 py-1 rounded-full font-mono">학번: 2021001001</span>
-                <span className="text-xs bg-black/30 text-slate-300 px-3 py-1 rounded-full font-mono">비밀번호: test1234</span>
-              </div>
-            </div>
-            <Link
-              href="/participant/login"
-              className="flex-shrink-0 bg-slate-600 hover:bg-slate-500 text-white px-6 py-3 rounded-xl font-semibold text-sm transition-colors"
-            >
-              참가자 체험 →
-            </Link>
-          </div>
         </div>
       </section>
 
