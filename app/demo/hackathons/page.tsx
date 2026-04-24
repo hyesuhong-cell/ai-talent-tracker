@@ -137,7 +137,7 @@ export default function DemoHackathonsPage() {
               <p className="font-bold text-sm">귀 대학 해커톤에 도입하려면?</p>
               <p className="text-blue-100 text-xs mt-0.5">문의 주시면 맞춤 시연과 함께 도입 안내를 제공해드립니다.</p>
             </div>
-            <a href="https://forms.gle/GRcf2iNKxL21ys5B9" className="bg-white text-blue-700 px-5 py-2 rounded-lg font-bold text-sm hover:bg-blue-50 transition-colors whitespace-nowrap">
+            <a href="mailto:hyesu.hong@udimpact.ai" className="bg-white text-blue-700 px-5 py-2 rounded-lg font-bold text-sm hover:bg-blue-50 transition-colors whitespace-nowrap">
               📩 도입 문의하기
             </a>
           </div>
