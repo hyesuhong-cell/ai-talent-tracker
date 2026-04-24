@@ -50,12 +50,32 @@ export default function ReportCharts({ data, section, preScores, postScores }: R
         {/* 전공 계열 파이 */}
         <div>
           <h3 className="text-sm font-semibold text-slate-600 mb-3">전공 계열 분포</h3>
-          <ResponsiveContainer width="100%" height={180}>
+          <ResponsiveContainer width="100%" height={200}>
             <PieChart>
-              <Pie data={data.majorData} cx="50%" cy="50%" outerRadius={70} dataKey="value" nameKey="name" label={({ name, percent }) => `${(name || '').replace('공학(', '').replace(')', '')} ${((percent || 0)*100).toFixed(0)}%`} labelLine={false} fontSize={11}>
+              <Pie
+                data={data.majorData}
+                cx="50%"
+                cy="45%"
+                outerRadius={60}
+                dataKey="value"
+                nameKey="name"
+                label={false}
+              >
                 {data.majorData?.map((_, i) => <Cell key={i} fill={COLORS[i % COLORS.length]} />)}
               </Pie>
-              <Tooltip />
+              <Tooltip formatter={(value: number, name: string) => [`${value}명`, name]} />
+              <Legend
+                layout="horizontal"
+                verticalAlign="bottom"
+                align="center"
+                iconSize={10}
+                iconType="circle"
+                formatter={(value: string) => (
+                  <span style={{ fontSize: '11px', color: '#475569' }}>
+                    {value.replace('공학(', '').replace(')', '')}
+                  </span>
+                )}
+              />
             </PieChart>
           </ResponsiveContainer>
         </div>
