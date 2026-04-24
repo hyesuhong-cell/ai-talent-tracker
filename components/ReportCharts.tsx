@@ -63,7 +63,7 @@ export default function ReportCharts({ data, section, preScores, postScores }: R
               >
                 {data.majorData?.map((_, i) => <Cell key={i} fill={COLORS[i % COLORS.length]} />)}
               </Pie>
-              <Tooltip formatter={(value: number, name: string) => [`${value}명`, name]} />
+              <Tooltip />
               <Legend
                 layout="horizontal"
                 verticalAlign="bottom"
@@ -71,7 +71,6 @@ export default function ReportCharts({ data, section, preScores, postScores }: R
                 iconSize={10}
                 iconType="circle"
                 wrapperStyle={{ fontSize: '11px', color: '#475569' }}
-                formatter={(value: string) => value.replace('공학(', '').replace(')', '')}
               />
             </PieChart>
           </ResponsiveContainer>
