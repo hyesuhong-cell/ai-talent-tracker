@@ -70,11 +70,8 @@ export default function ReportCharts({ data, section, preScores, postScores }: R
                 align="center"
                 iconSize={10}
                 iconType="circle"
-                formatter={(value: string) => (
-                  <span style={{ fontSize: '11px', color: '#475569' }}>
-                    {value.replace('공학(', '').replace(')', '')}
-                  </span>
-                )}
+                wrapperStyle={{ fontSize: '11px', color: '#475569' }}
+                formatter={(value: string) => value.replace('공학(', '').replace(')', '')}
               />
             </PieChart>
           </ResponsiveContainer>
