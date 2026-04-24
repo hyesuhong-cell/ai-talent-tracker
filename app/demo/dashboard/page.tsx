@@ -167,7 +167,7 @@ export default function DemoDashboardPage() {
             <KpiCard
               icon="👥"
               label="총 참가자"
-              rawValue={mockParticipants.length}
+              rawValue={96}
               suffix="명"
               sub="역대 누적"
               color="bg-emerald-600"
@@ -176,9 +176,9 @@ export default function DemoDashboardPage() {
             <KpiCard
               icon="📊"
               label="역량 진단 완료"
-              rawValue={diagnosed}
+              rawValue={63}
               suffix="명"
-              sub={`완료율 ${Math.round(diagnosed / mockParticipants.length * 100)}%`}
+              sub="완료율 66%"
               color="bg-violet-600"
               animate
             />
