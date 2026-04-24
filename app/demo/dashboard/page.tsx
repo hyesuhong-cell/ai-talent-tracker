@@ -97,9 +97,6 @@ export default function DemoDashboardPage() {
           </div>
           <div className="flex items-center gap-3">
             <Link href="/demo" className="text-white/70 hover:text-white text-xs transition-colors">← 데모 소개로</Link>
-            <Link href="/admin/login" className="bg-white text-blue-700 text-xs font-bold px-4 py-1.5 rounded-lg hover:bg-blue-50 transition-colors">
-              로그인 후 실제 사용 →
-            </Link>
           </div>
         </div>
       </div>
@@ -230,13 +227,10 @@ export default function DemoDashboardPage() {
 
           {/* 하단 CTA */}
           <div className="bg-gradient-to-r from-blue-600 to-cyan-500 rounded-2xl p-6 text-white text-center">
-            <h3 className="text-lg font-bold mb-2">실제 해커톤 데이터로 운영하려면?</h3>
-            <p className="text-blue-100 text-sm mb-4">어드민 계정으로 로그인하면 실제 참가자 관리, 성과 리포트 발행 등 전체 기능을 사용할 수 있습니다.</p>
+            <h3 className="text-lg font-bold mb-2">귀 대학 해커톤에 도입하려면?</h3>
+            <p className="text-blue-100 text-sm mb-4">문의 주시면 맞춤 시연과 함께 도입 안내를 제공해드립니다.</p>
             <div className="flex items-center justify-center gap-3 flex-wrap">
-              <Link href="/admin/login" className="bg-white text-blue-700 px-6 py-2.5 rounded-xl font-bold text-sm hover:bg-blue-50 transition-colors">
-                어드민으로 로그인 →
-              </Link>
-              <Link href="/demo/report" className="bg-white/20 text-white px-6 py-2.5 rounded-xl font-semibold text-sm hover:bg-white/30 transition-colors border border-white/30">
+              <Link href="/demo/report" className="bg-white text-blue-700 px-6 py-2.5 rounded-xl font-bold text-sm hover:bg-blue-50 transition-colors">
                 성과 리포트 미리보기 →
               </Link>
               <a href="https://forms.gle/GRcf2iNKxL21ys5B9" className="bg-white/20 text-white px-6 py-2.5 rounded-xl font-semibold text-sm hover:bg-white/30 transition-colors border border-white/30">

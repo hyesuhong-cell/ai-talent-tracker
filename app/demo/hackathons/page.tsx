@@ -29,9 +29,6 @@ export default function DemoHackathonsPage() {
           </div>
           <div className="flex items-center gap-3">
             <Link href="/demo" className="text-white/70 hover:text-white text-xs transition-colors">← 데모 소개로</Link>
-            <Link href="/admin/login" className="bg-white text-blue-700 text-xs font-bold px-4 py-1.5 rounded-lg hover:bg-blue-50 transition-colors">
-              로그인 후 실제 사용 →
-            </Link>
           </div>
         </div>
       </div>
@@ -137,12 +134,12 @@ export default function DemoHackathonsPage() {
           {/* CTA */}
           <div className="mt-4 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-xl p-5 text-white flex items-center justify-between">
             <div>
-              <p className="font-bold text-sm">실제로 해커톤을 등록하고 싶다면?</p>
-              <p className="text-blue-100 text-xs mt-0.5">어드민으로 로그인하면 해커톤 생성, 참가자 관리, 리포트 발행이 가능합니다.</p>
+              <p className="font-bold text-sm">귀 대학 해커톤에 도입하려면?</p>
+              <p className="text-blue-100 text-xs mt-0.5">문의 주시면 맞춤 시연과 함께 도입 안내를 제공해드립니다.</p>
             </div>
-            <Link href="/admin/login" className="bg-white text-blue-700 px-5 py-2 rounded-lg font-bold text-sm hover:bg-blue-50 transition-colors whitespace-nowrap">
-              어드민 로그인 →
-            </Link>
+            <a href="https://forms.gle/GRcf2iNKxL21ys5B9" className="bg-white text-blue-700 px-5 py-2 rounded-lg font-bold text-sm hover:bg-blue-50 transition-colors whitespace-nowrap">
+              📩 도입 문의하기
+            </a>
           </div>
         </main>
       </div>

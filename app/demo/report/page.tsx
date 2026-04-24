@@ -110,9 +110,9 @@ export default function DemoReportPage() {
           </div>
           <div className="flex items-center gap-3 flex-shrink-0">
             <Link href="/demo/dashboard" className="text-white/70 hover:text-white text-xs transition-colors">← 대시보드</Link>
-            <Link href="/admin/login" className="bg-white text-blue-700 text-xs font-bold px-4 py-1.5 rounded-lg hover:bg-blue-50 transition-colors">
-              로그인 후 PDF 발행 →
-            </Link>
+            <a href="https://forms.gle/GRcf2iNKxL21ys5B9" className="bg-white text-blue-700 text-xs font-bold px-4 py-1.5 rounded-lg hover:bg-blue-50 transition-colors">
+              📩 도입 문의하기
+            </a>
           </div>
         </div>
       </div>
@@ -125,8 +125,8 @@ export default function DemoReportPage() {
             <p className="text-slate-500">대학 실무진을 위한 상세 분석 보고서 — <span className="font-medium text-blue-600">{hackathon.name}</span></p>
           </div>
           <div className="flex items-center gap-2 bg-amber-50 border border-amber-200 rounded-xl px-4 py-2.5 text-sm text-amber-800">
-            <span>🔒</span>
-            <span>PDF 발행은 <Link href="/admin/login" className="underline font-semibold">로그인</Link> 후 이용</span>
+            <span>📩</span>
+            <a href="https://forms.gle/GRcf2iNKxL21ys5B9" className="underline font-semibold hover:text-amber-600">도입 문의하기</a>
           </div>
         </div>
 
@@ -452,9 +452,9 @@ export default function DemoReportPage() {
           <h3 className="text-xl font-bold mb-2">이 리포트를 우리 해커톤에도 적용하려면?</h3>
           <p className="text-blue-100 text-sm mb-6">어드민 계정으로 로그인하면 실제 참가자 데이터 기반의 성과 리포트를 PDF로 발행할 수 있습니다.</p>
           <div className="flex items-center justify-center gap-3">
-            <Link href="/admin/login" className="bg-white text-blue-700 px-8 py-3 rounded-xl font-bold hover:bg-blue-50 transition-colors">
-              어드민으로 로그인 →
-            </Link>
+            <a href="https://forms.gle/GRcf2iNKxL21ys5B9" className="bg-white text-blue-700 px-8 py-3 rounded-xl font-bold hover:bg-blue-50 transition-colors">
+              📩 도입 문의하기
+            </a>
             <Link href="/demo/dashboard" className="bg-white/20 text-white px-8 py-3 rounded-xl font-semibold hover:bg-white/30 transition-colors border border-white/30">
               ← 대시보드로 돌아가기
             </Link>
